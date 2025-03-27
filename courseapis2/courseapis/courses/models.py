@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from ckeditor.fields import RichTextField
 
 class User(AbstractUser):
     pass
@@ -46,7 +47,7 @@ class Bookmark(BaseModel):
     
 class Lesson(BaseModel):
     subject = models.CharField(max_length=255)
-    content = models.TextField()
+    content = RichTextField()
     image = models.CharField(max_length=100)
     course = models.ForeignKey(Course, on_delete=models.PROTECT, null=True)
     tags = models.ManyToManyField(Tag)
