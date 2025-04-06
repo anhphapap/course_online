@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'pymysql',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'rest_framework'
 ]
 
 CKEDITOR_UPLOAD_PATH = 'ckeditor/images/'
