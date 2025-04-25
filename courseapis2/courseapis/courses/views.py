@@ -30,3 +30,9 @@ class CourseViewSet(viewsets.ViewSet, generics.ListAPIView):
 class CategoryViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Category.objects.filter(active=True)
     serializer_class = CategorySerializer
+
+
+class LessonViewSet(viewsets.ViewSet, generics.RetrieveAPIView):
+    queryset = Lesson.objects.prefetch_related('tags').filter(active=True)
+    serializer_class = LessonDetailsSerializer
+    

@@ -18,3 +18,20 @@ class LessonSerializer(serializers.ModelSerializer):
         model = Lesson
         fields = ['id', 'image', 'subject']
         
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ['id', 'name']
+
+
+class LessonDetailsSerializer(LessonSerializer):
+    tags = TagSerializer(many=True)
+    comment_count = serializers.SerializerMethodField()
+
+    def get_comment_count(self, lesson):
+        return lesson.comment_set.filter(active=True).count()
+
+    class Meta:
+        model = LessonSerializer.Meta.model
+        fields = LessonSerializer.Meta.fields + ['content', 'tags', 'comment_count']
