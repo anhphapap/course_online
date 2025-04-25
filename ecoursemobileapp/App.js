@@ -38,12 +38,12 @@ const TabNavigator = () => {
       <Tab.Screen
         name="login"
         component={Login}
-        options={{ tabBarIcon: () => <Icon size={30} source="account" /> }}
+        options={{ tabBarIcon: () => <Icon size={30} source="account" /> , headerShown: true }}
       />
       <Tab.Screen
         name="register"
         component={Register}
-        options={{ tabBarIcon: () => <Icon size={30} source="account-plus" /> }}
+        options={{ tabBarIcon: () => <Icon size={30} source="account-plus" />, headerShown: true }}
       />
     </Tab.Navigator>
   );
